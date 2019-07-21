@@ -22,10 +22,10 @@ spacer('findEmployeeByName Moe')
 // given a name and array of employees, return employee
 console.log(findEmployeeByName('moe', employees));//{ id: 1, name: 'moe' }
 
-function findEmployeeByName(employeeName) {
-  for (let i=0;i<employees.length;i++) {
-    if (employees[i].name === employeeName) {
-      return employees[i];
+function findEmployeeByName(employeeName, array) {
+  for (let i=0;i<array.length;i++) {
+    if (array[i].name === employeeName) {
+      return array[i];
     }
   }
 
@@ -59,6 +59,26 @@ console.log(findCoworkersFor(findEmployeeByName('larry', employees), employees))
 [ { id: 3, name: 'curly', managerId: 1 },
   { id: 99, name: 'lucy', managerId: 1 } ]
 */
+
+function findCoworkersFor(employee1, array) {
+let coworkers = [];
+
+let manager = findManagerFor(employee1, array);
+
+let managerID = manager.id;
+
+
+ for (let i=0;i<array.length;i++) {
+    if (array[i].managerId === managerID && array[i].id !== employee1.id) {
+      coworkers.push(array[i]);
+    }
+  }
+
+
+  return coworkers;
+
+
+}
 
 spacer('');
 
