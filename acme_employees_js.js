@@ -9,6 +9,7 @@ const employees = [
   { id: 99, name: 'lucy', managerId: 1}
 ];
 
+
 const spacer = (text)=> {
   if(!text){
     return console.log('');
@@ -20,6 +21,16 @@ const spacer = (text)=> {
 spacer('findEmployeeByName Moe')
 // given a name and array of employees, return employee
 console.log(findEmployeeByName('moe', employees));//{ id: 1, name: 'moe' }
+
+function findEmployeeByName(employeeName) {
+  for (let i=0;i<employees.length;i++) {
+    if (employees[i].name === employeeName) {
+      return employees[i];
+    }
+  }
+
+ }
+
 spacer('')
 
 spacer('findManagerFor Shep')
