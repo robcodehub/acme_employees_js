@@ -36,6 +36,20 @@ spacer('')
 spacer('findManagerFor Shep')
 //given an employee and a list of employees, return the employee who is the manager
 console.log(findManagerFor(findEmployeeByName('shep Jr.', employees), employees));//{ id: 4, name: 'shep', managerId: 2 }
+
+function findManagerFor(employee1, array) {
+
+  let idToFind = employee1.managerId;
+
+
+   for (let i=0;i<array.length;i++) {
+    if (array[i].id === idToFind) {
+      return array[i];
+    }
+  }
+}
+
+
 spacer('')
 
 spacer('findCoworkersFor Larry')
