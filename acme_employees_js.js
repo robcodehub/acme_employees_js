@@ -93,6 +93,55 @@ console.log(findManagementChainForEmployee(findEmployeeByName('shep Jr.', employ
   { id: 2, name: 'larry', managerId: 1 },
   { id: 4, name: 'shep', managerId: 2 }]
 */
+
+
+
+function findManagementChainForEmployee(employee1, array) {
+  //create new managerChain array to return
+  let managerChain = [];
+
+
+  if (findManagerFor(employee1, array) === undefined) {
+    return managerChain;
+  }
+
+  //console.log to check the employee1 data in argument
+  //console.log("employee1 = ", employee1);
+
+  //create currentEmployee variable
+ //save current employee object to currentEmployee variable
+    let currentEmployee = employee1;
+
+  //use findmanager on current employee variable to find manager for current employee
+   manager = findManagerFor(currentEmployee, array);
+
+  //use .unshift on manager to push managerChain array to the start of the array
+  managerChain.unshift(manager);
+
+
+  //set currentEmployee to manager
+  currentEmployee = manager;
+
+//while the currentEmployee has a manager ID
+//loop add the manager to the array
+while(currentEmployee.managerId !== undefined) {
+   manager = findManagerFor(currentEmployee, array);
+
+  //use .unshift on manager to push managerChain array to the start of the array
+  managerChain.unshift(manager);
+
+
+  //set currentEmployee to manager
+  currentEmployee = manager;
+
+}
+
+  //return managerChain array
+  return managerChain
+
+}
+
+
 spacer('');
 
 
