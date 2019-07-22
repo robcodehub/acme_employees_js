@@ -208,9 +208,17 @@ function generateManagementTree(array) {
 
 //create an array for the management tree object
 let managementTreeArray = [];
+let currentManagerId = null;
 
 for (let i=0;i<array.length;i++) {
   array[i]["reports"] = [];
+  currentManagerId = array[i].id
+  for (let j=0;j<array.length;j++) {
+    if (array[j].managerId === currentManagerId) {
+      array[i]["reports"].push(array[j]);
+}
+
+    }
   managementTreeArray.push(array[i]);
 }
 
