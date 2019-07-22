@@ -202,6 +202,27 @@ console.log(JSON.stringify(generateManagementTree(employees), null, 2));
   ]
 }
 */
+
+
+function generateManagementTree(array) {
+
+//create an array for the management tree object
+let managementTreeArray = [];
+
+for (let i=0;i<array.length;i++) {
+  array[i]["reports"] = [];
+  managementTreeArray.push(array[i]);
+}
+
+
+
+
+//return the management tree object
+return managementTreeArray;
+}
+
+
+
 spacer('');
 
 spacer('displayManagementTree')
@@ -216,3 +237,8 @@ moe
 ---harpo
 -lucy
 */
+
+
+function displayManagementTree() {
+
+}
